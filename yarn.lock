@@ -946,6 +946,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/config@npm:^3.2.3":
+  version: 3.2.3
+  resolution: "@nestjs/config@npm:3.2.3"
+  dependencies:
+    dotenv: 16.4.5
+    dotenv-expand: 10.0.0
+    lodash: 4.17.21
+  peerDependencies:
+    "@nestjs/common": ^8.0.0 || ^9.0.0 || ^10.0.0
+    rxjs: ^7.1.0
+  checksum: 5e013737c0cac2aa9ca0ac4bd17d21ce5d86feac7e3bf5a54d7d27c7ef5e3b860e079e45e584ad3d191de33a6ab88d882bbab0bf281d94a6ef94edd86b122466
+  languageName: node
+  linkType: hard
+
 "@nestjs/core@npm:^10.0.0":
   version: 10.4.3
   resolution: "@nestjs/core@npm:10.4.3"
@@ -971,6 +985,18 @@ __metadata:
     "@nestjs/websockets":
       optional: true
   checksum: 55e2b96f9851d58e42c35d2057bca7b700ced22724e5b17745a88bf2e1f8d61d9d7a84f31b19106982c0cd3d913de165031451ff3b05da1f7c04b83988c499e5
+  languageName: node
+  linkType: hard
+
+"@nestjs/mongoose@npm:^10.0.10":
+  version: 10.0.10
+  resolution: "@nestjs/mongoose@npm:10.0.10"
+  peerDependencies:
+    "@nestjs/common": ^8.0.0 || ^9.0.0 || ^10.0.0
+    "@nestjs/core": ^8.0.0 || ^9.0.0 || ^10.0.0
+    mongoose: ^6.0.2 || ^7.0.0 || ^8.0.0
+    rxjs: ^7.0.0
+  checksum: b78ed60cdc6f7e53022201ecc934d8202f5a75eb7f85124f564b63bad193f6f6716bff973254f2e56259cfac30571c4b3e7e6d3dd6e90c27b3c3c82a6067a6cf
   languageName: node
   linkType: hard
 
@@ -2846,6 +2872,20 @@ __metadata:
   dependencies:
     esutils: ^2.0.2
   checksum: fd7673ca77fe26cd5cba38d816bc72d641f500f1f9b25b83e8ce28827fe2da7ad583a8da26ab6af85f834138cf8dae9f69b0cd6ab925f52ddab1754db44d99ce
+  languageName: node
+  linkType: hard
+
+"dotenv-expand@npm:10.0.0":
+  version: 10.0.0
+  resolution: "dotenv-expand@npm:10.0.0"
+  checksum: 2a38b470efe0abcb1ac8490421a55e1d764dc9440fd220942bce40965074f3fb00b585f4346020cb0f0f219966ee6b4ee5023458b3e2953fe5b3214de1b314ee
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:16.4.5":
+  version: 16.4.5
+  resolution: "dotenv@npm:16.4.5"
+  checksum: 301a12c3d44fd49888b74eb9ccf9f07a1f5df43f489e7fcb89647a2edcd84c42d6bc349dc8df099cd18f07c35c7b04685c1a4f3e6a6a9e6b30f8d48c15b7f49c
   languageName: node
   linkType: hard
 
@@ -4887,7 +4927,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.21":
+"lodash@npm:4.17.21, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -5214,13 +5254,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mockest@workspace:.":
+"mockest-api@workspace:.":
   version: 0.0.0-use.local
-  resolution: "mockest@workspace:."
+  resolution: "mockest-api@workspace:."
   dependencies:
     "@nestjs/cli": ^10.0.0
     "@nestjs/common": ^10.0.0
+    "@nestjs/config": ^3.2.3
     "@nestjs/core": ^10.0.0
+    "@nestjs/mongoose": ^10.0.10
     "@nestjs/platform-express": ^10.0.0
     "@nestjs/schematics": ^10.0.0
     "@nestjs/testing": ^10.0.0

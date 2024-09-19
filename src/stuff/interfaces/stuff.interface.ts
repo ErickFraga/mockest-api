@@ -1,4 +1,4 @@
-export interface Stuff {
+export interface IStuff {
   title: string;
   slug: string;
   content: string;

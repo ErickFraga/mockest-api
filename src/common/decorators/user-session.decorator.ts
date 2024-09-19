@@ -5,7 +5,7 @@ export const UserSession = createParamDecorator(
     const request = ctx.switchToHttp().getRequest();
 
     const sessionId = request.cookies.sessionId;
-    console.log('Session Decorator', sessionId);
+
     return sessionId as string;
   },
 );

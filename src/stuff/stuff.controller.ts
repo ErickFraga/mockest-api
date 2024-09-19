@@ -23,16 +23,22 @@ export class StuffController {
   @Post()
   async createStuff(
     @UserSession() sessionId: string,
+    @Res() res: Response,
     @Body(createStuffBodyValidationPipe) body: CreateStuffBody,
   ) {
     const { title, raw_content } = body;
 
     const content = escapeString(raw_content);
 
-    return await this.stuffService.createStuff({
+    const { slug, stuffId } = await this.stuffService.createStuff({
       title: title,
       content,
       ownerTag: sessionId,
+    });
+
+    return res.status(HttpStatus.CREATED).json({
+      slug,
+      stuffId,
     });
   }
 
@@ -50,10 +56,24 @@ export class StuffController {
       stuff: {
         id: stuff.id,
         title: stuff.title,
-        content: JSON.parse(unescapeString(stuff.content)),
+        content: JSON.parse(unescapeString(stuff.content.raw)),
         createdAt: stuff.createdAt,
         updatedAt: stuff.updatedAt,
       },
+    });
+  }
+  @Get('read/:slug')
+  async readStuff(@Res() res: Response, @Param('slug') slug: string) {
+    const stuff = await this.stuffService.getStuffBySlug(slug);
+
+    if (!stuff) {
+      return res
+        .status(HttpStatus.NOT_FOUND)
+        .send({ message: 'Stuff not found' });
+    }
+
+    return res.status(HttpStatus.OK).json({
+      ...JSON.parse(unescapeString(stuff.content.raw)),
     });
   }
 }

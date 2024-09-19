@@ -14,8 +14,6 @@ export class SessionMiddleware {
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
     });
 
-    console.log('Session ID:', sessionId);
-
     next();
   }
 }
